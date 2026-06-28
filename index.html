@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>안정호 — Brand &amp; Growth Marketing Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Space+Mono:wght@400;700&family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --bg:#0B0B0C;
+    --panel:#141416;
+    --ink:#F4F4F0;
+    --muted:#8A8A84;
+    --faint:#5A5A56;
+    --amber:#F5B301;
+    --amber-deep:#C98F00;
+    --line:rgba(244,244,240,.12);
+    --display:"Big Shoulders Display",sans-serif;
+    --kr:"Pretendard","Noto Sans KR",-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:"Space Mono",monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:var(--kr);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+
+  /* ---------- HERO SHELL ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;flex-direction:column;
+    padding:clamp(20px,3.4vw,40px);
+    overflow:hidden;
+  }
+
+  .ghost{
+    position:absolute;top:42%;left:50%;
+    transform:translate(-50%,-50%);
+    font-family:var(--display);font-weight:900;
+    font-size:33vw;letter-spacing:-.02em;line-height:1;
+    color:#fff;opacity:.022;white-space:nowrap;
+    pointer-events:none;user-select:none;z-index:0;
+  }
+  .glow{
+    position:absolute;width:60vw;height:60vw;
+    top:-18vw;right:-16vw;border-radius:50%;
+    background:radial-gradient(circle,rgba(245,179,1,.10),transparent 62%);
+    filter:blur(8px);pointer-events:none;z-index:0;
+  }
+  .grain{
+    position:absolute;inset:0;z-index:0;pointer-events:none;
+    opacity:.4;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{
+    position:relative;z-index:2;
+    display:flex;justify-content:space-between;align-items:flex-start;
+    gap:16px;
+  }
+  .mark{
+    font-family:var(--display);font-weight:800;
+    font-size:clamp(15px,1.5vw,19px);letter-spacing:.14em;
+  }
+  .mark .dot{color:var(--amber)}
+  .meta{
+    text-align:right;font-family:var(--mono);
+    font-size:clamp(9.5px,.85vw,11px);letter-spacing:.06em;
+    color:var(--muted);line-height:1.7;
+  }
+  .meta b{color:var(--ink);font-weight:700}
+
+  /* ---------- HEADLINE BLOCK ---------- */
+  .stage{
+    position:relative;z-index:2;
+    flex:1;display:flex;flex-direction:column;justify-content:center;
+    padding:clamp(8px,2vw,28px) 0;
+  }
+  .eyebrow{
+    font-family:var(--mono);font-size:clamp(10px,.95vw,12.5px);
+    letter-spacing:.3em;color:var(--amber);
+    text-transform:uppercase;margin-bottom:clamp(18px,2.4vw,30px);
+    display:flex;align-items:center;gap:14px;
+    opacity:0;transform:translateY(12px);
+    animation:rise .7s .1s forwards cubic-bezier(.2,.7,.2,1);
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--amber);display:inline-block;flex:none}
+
+  .headline{
+    font-family:var(--kr);font-weight:800;
+    font-size:clamp(2.6rem,8.2vw,7.4rem);
+    line-height:1.02;letter-spacing:-.03em;
+  }
+  .headline .lead{
+    display:block;color:var(--muted);
+    opacity:0;transform:translateY(18px);
+    animation:rise .8s .22s forwards cubic-bezier(.2,.7,.2,1);
+  }
+
+  .kline{
+    display:flex;align-items:flex-end;flex-wrap:wrap;
+    gap:0 .2em;margin-top:.04em;
+    opacity:0;transform:translateY(18px);
+    animation:rise .8s .36s forwards cubic-bezier(.2,.7,.2,1);
+  }
+  .slot{
+    position:relative;display:inline-block;
+    height:1.12em;overflow:hidden;vertical-align:bottom;
+    transition:width .5s cubic-bezier(.6,.02,.1,1);
+  }
+  .slot .word{
+    position:absolute;left:0;bottom:0;white-space:nowrap;
+    line-height:1;color:var(--amber);font-weight:800;
+    opacity:0;transform:translateY(100%);
+    transition:opacity .45s ease,transform .55s cubic-bezier(.6,.02,.1,1);
+  }
+  .slot .word.in{opacity:1;transform:translateY(0)}
+  .slot .word.out{opacity:0;transform:translateY(-100%)}
+  /* fallback: show first word if JS hasn't engaged */
+  .slot:not(.js){width:auto!important}
+  .slot:not(.js) .word:first-child{position:relative;opacity:1;transform:none}
+  .slot::after{
+    content:"";position:absolute;left:0;bottom:0;
+    width:100%;height:.07em;background:var(--amber);
+  }
+  .verb{color:var(--ink);font-weight:800;white-space:nowrap;line-height:1.02}
+
+  .sub{
+    max-width:54ch;margin-top:clamp(24px,3vw,40px);
+    color:var(--muted);font-size:clamp(14px,1.3vw,17px);
+    line-height:1.7;letter-spacing:-.01em;
+    opacity:0;transform:translateY(14px);
+    animation:rise .8s .5s forwards cubic-bezier(.2,.7,.2,1);
+  }
+  .sub b{color:var(--ink);font-weight:600}
+
+  .cluster{
+    display:flex;flex-wrap:wrap;gap:clamp(22px,3vw,52px);
+    margin-top:clamp(26px,3vw,40px);
+    opacity:0;transform:translateY(14px);
+    animation:rise .8s .62s forwards cubic-bezier(.2,.7,.2,1);
+  }
+  .stat .n{
+    font-family:var(--mono);font-weight:700;
+    font-size:clamp(20px,2.4vw,30px);letter-spacing:-.02em;color:var(--ink);
+  }
+  .stat .n em{font-style:normal;color:var(--amber)}
+  .stat .n .u{font-family:var(--kr);font-weight:700;font-size:.62em;margin-left:.04em}
+  .stat .l{
+    font-size:clamp(11px,1vw,13px);color:var(--muted);
+    margin-top:5px;letter-spacing:.01em;
+  }
+
+  /* ---------- MARQUEE ---------- */
+  .reel{
+    position:relative;z-index:2;
+    border-top:1px solid var(--line);
+    padding-top:clamp(14px,1.8vw,20px);
+    opacity:0;transform:translateY(14px);
+    animation:rise .8s .8s forwards cubic-bezier(.2,.7,.2,1);
+  }
+  .reel-cap{
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+    color:var(--faint);text-transform:uppercase;margin-bottom:12px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .reel-cap .live{
+    width:6px;height:6px;border-radius:50%;background:var(--amber);
+    box-shadow:0 0 0 0 rgba(245,179,1,.5);animation:pulse 2s infinite;flex:none
+  }
+  .track-wrap{
+    position:relative;overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+  }
+  .track-wrap + .track-wrap{margin-top:9px}
+  .track{display:flex;width:max-content;will-change:transform}
+  .track.a{animation:slide 46s linear infinite}
+  .track.b{animation:slide 52s linear infinite reverse}
+  .track-wrap:hover .track{animation-play-state:paused}
+  .brand{
+    display:inline-flex;align-items:center;
+    font-size:clamp(14px,1.5vw,19px);font-weight:500;
+    color:var(--muted);letter-spacing:-.01em;white-space:nowrap;
+    padding:0 clamp(16px,1.8vw,26px);
+  }
+  .brand::after{
+    content:"";width:4px;height:4px;border-radius:50%;
+    background:var(--amber-deep);opacity:.6;margin-left:clamp(16px,1.8vw,26px)
+  }
+  .brand:hover{color:var(--ink)}
+
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(245,179,1,.45)}
+    70%{box-shadow:0 0 0 7px rgba(245,179,1,0)}
+    100%{box-shadow:0 0 0 0 rgba(245,179,1,0)}
+  }
+
+  .scroll{
+    position:absolute;right:clamp(20px,3.4vw,40px);
+    bottom:clamp(150px,17vw,190px);z-index:2;
+    writing-mode:vertical-rl;font-family:var(--mono);
+    font-size:10.5px;letter-spacing:.3em;color:var(--faint);
+    text-transform:uppercase;display:flex;align-items:center;gap:12px;
+  }
+  .scroll::after{content:"";width:1px;height:40px;background:linear-gradient(var(--faint),transparent)}
+
+  @media (max-width:680px){
+    .meta{display:none}
+    .scroll{display:none}
+    .headline{font-size:clamp(2.5rem,12vw,4rem)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .eyebrow,.lead,.kline,.sub,.cluster,.reel{opacity:1;transform:none}
+    .slot .word.in{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="glow"></div>
+  <div class="ghost">COMMERCE</div>
+  <div class="grain"></div>
+
+  <header class="topbar">
+    <div class="mark">AHN JUNGHO<span class="dot">.</span></div>
+    <div class="meta">
+      <div><b>BRAND &amp; GROWTH</b> MARKETING LEADER</div>
+      <div>17 YRS / COMMERCE-LED / DAEHONG</div>
+    </div>
+  </header>
+
+  <div class="stage">
+    <div class="eyebrow">DIGITAL &amp; GROWTH MARKETING — SINCE 2008</div>
+
+    <h1 class="headline">
+      <span class="lead">광고를 넘어,</span>
+      <span class="kline">
+        <span class="slot" id="slot">
+          <span class="word">사업을</span>
+          <span class="word">매출을</span>
+          <span class="word">브랜드를</span>
+          <span class="word">팀을</span>
+        </span>
+        <span class="verb">키웁니다</span>
+      </span>
+    </h1>
+
+    <p class="sub">
+      삼성닷컴과 GS SHOP, 롯데 유통, D2C 자사몰까지 — <b>설치에서 매출까지</b> 퍼널 전체를 책임진 17년.
+      대행의 캠페인을 넘어 <b>3억에서 30억으로</b> 미디어 사업의 손익을 직접 키운, 커머스 스파인의 그로스 리더.
+    </p>
+
+    <div class="cluster">
+      <div class="stat"><div class="n">17<span class="u">년</span></div><div class="l">디지털 그로스 마케팅</div></div>
+      <div class="stat"><div class="n"><em>10</em>x</div><div class="l">미디어 사업 매출 2년</div></div>
+      <div class="stat"><div class="n">15<span class="u">인</span></div><div class="l">크로스컴퍼니 조직 리딩</div></div>
+      <div class="stat"><div class="n"><em>40</em>+</div><div class="l">담당 브랜드 카테고리</div></div>
+    </div>
+  </div>
+
+  <div class="scroll">SCROLL</div>
+
+  <div class="reel">
+    <div class="reel-cap"><span class="live"></span>SELECTED CLIENTS &amp; BRANDS</div>
+    <div class="track-wrap"><div class="track a" id="trackA"></div></div>
+    <div class="track-wrap"><div class="track b" id="trackB"></div></div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* ---- kinetic word slot ---- */
+  var slot=document.getElementById('slot');
+  if(slot){
+    var words=[].slice.call(slot.querySelectorAll('.word'));
+    var i=0;
+    slot.classList.add('js');
+
+    function widthOf(el){return Math.ceil(el.getBoundingClientRect().width);}
+    function fit(instant){
+      slot.style.transition=instant?'none':'';
+      slot.style.width=widthOf(words[i])+'px';
+      if(instant){void slot.offsetWidth;slot.style.transition='';}
+    }
+    function setActive(idx,instant){
+      words.forEach(function(w,k){w.classList.remove('in','out');if(k===idx)w.classList.add('in');});
+      i=idx;fit(instant);
+    }
+    function next(){
+      var prev=i;i=(i+1)%words.length;
+      words[prev].classList.remove('in');words[prev].classList.add('out');
+      words[i].classList.remove('out');words[i].classList.add('in');
+      slot.style.width=widthOf(words[i])+'px';
+    }
+
+    setActive(0,true);
+    if(!reduce)setInterval(next,2200);
+    if(document.fonts&&document.fonts.ready){document.fonts.ready.then(function(){fit(true);});}
+    window.addEventListener('resize',function(){fit(true);});
+  }
+
+  /* ---- marquee fill ---- */
+  var rowA=['삼성전자','삼성닷컴','GS SHOP','홈앤쇼핑','롯데백화점','롯데ON','롯데마트','롯데하이마트','롯데호텔','롯데웰푸드','포드','링컨','티머니GO','핀트'];
+  var rowB=['Amazon Ads','쥬비스','펄세스','LG생활건강 이자녹스','남양유업','신일','KT&G','그린카','KG모빌리티','동국제약','교원','웅진씽크빅','풀무원샵','호주관광청'];
+  function fill(el,list){
+    if(!el)return;
+    var html=list.map(function(b){return '<span class="brand">'+b+'</span>';}).join('');
+    el.innerHTML=html+html;
+  }
+  fill(document.getElementById('trackA'),rowA);
+  fill(document.getElementById('trackB'),rowB);
+})();
+</script>
+</body>
+</html>
