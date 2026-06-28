@@ -226,6 +226,140 @@
     .eyebrow,.lead,.kline,.sub,.cluster,.reel{opacity:1;transform:none}
     .slot .word.in{opacity:1;transform:none}
   }
+
+  /* ============================================================
+     SECTIONS (About / Pillars / Cases) — 히어로 토큰만 사용
+     ============================================================ */
+  .section{
+    position:relative;z-index:1;
+    max-width:1200px;margin:0 auto;
+    padding:clamp(64px,11vw,150px) clamp(20px,3.4vw,40px);
+  }
+  .section + .section{border-top:1px solid var(--line)}
+
+  .section-head{margin-bottom:clamp(34px,5vw,62px)}
+  .idx{
+    font-family:var(--mono);font-size:clamp(10px,.95vw,12.5px);
+    letter-spacing:.3em;color:var(--amber);text-transform:uppercase;
+    display:flex;align-items:center;gap:14px;margin-bottom:clamp(16px,2vw,24px);
+  }
+  .idx::before{content:"";width:34px;height:1px;background:var(--amber);flex:none}
+  .section-title{
+    font-family:var(--kr);font-weight:800;letter-spacing:-.03em;
+    font-size:clamp(1.8rem,4.4vw,3.4rem);line-height:1.12;
+  }
+  .section-title .am{color:var(--amber)}
+  .section-lead{
+    max-width:62ch;margin-top:clamp(18px,2.2vw,26px);
+    color:var(--muted);font-size:clamp(14px,1.25vw,17px);line-height:1.78;
+  }
+  .section-lead b{color:var(--ink);font-weight:600}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);
+    transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}
+  .reveal.d2{transition-delay:.16s}
+  .reveal.d3{transition-delay:.24s}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(34px,5vw,72px);align-items:start}
+  .about-body p{color:var(--muted);font-size:clamp(14px,1.25vw,17px);line-height:1.85}
+  .about-body p + p{margin-top:1.1em}
+  .about-body b{color:var(--ink);font-weight:600}
+  .about-body .am{color:var(--amber);font-weight:700}
+
+  .ways{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:16px;padding:clamp(24px,3vw,34px);
+  }
+  .ways-cap{
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+    color:var(--faint);text-transform:uppercase;margin-bottom:6px;
+  }
+  .ways-title{font-weight:800;font-size:clamp(1.1rem,1.8vw,1.45rem);letter-spacing:-.02em;margin-bottom:clamp(18px,2.4vw,26px)}
+  .step{display:flex;gap:16px;align-items:flex-start;padding:14px 0}
+  .step + .step{border-top:1px solid var(--line)}
+  .step .sn{
+    font-family:var(--mono);font-weight:700;font-size:1.05rem;color:var(--amber);
+    flex:none;width:1.7em;line-height:1.35;
+  }
+  .step .sb b{display:block;color:var(--ink);font-weight:700;font-size:clamp(14px,1.2vw,15.5px);margin-bottom:3px}
+  .step .sb span{color:var(--muted);font-size:clamp(12.5px,1.05vw,13.5px);line-height:1.6}
+  .ways-foot{
+    margin-top:clamp(18px,2.4vw,24px);padding-top:16px;border-top:1px solid var(--line);
+    color:var(--faint);font-size:12.5px;line-height:1.6;
+  }
+  .ways-foot b{color:var(--amber);font-weight:700}
+
+  /* ---------- PILLARS ---------- */
+  .pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.6vw,22px)}
+  .pillar{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:clamp(24px,2.8vw,36px);
+    transition:border-color .35s ease,transform .35s ease;
+  }
+  .pillar:hover{border-color:var(--amber-deep);transform:translateY(-4px)}
+  .pillar .pn{font-family:var(--mono);font-weight:700;color:var(--faint);font-size:13px;letter-spacing:.1em}
+  .pillar h3{
+    font-weight:800;letter-spacing:-.02em;line-height:1.2;
+    font-size:clamp(1.25rem,2vw,1.65rem);margin:14px 0 12px;
+  }
+  .pillar h3 .am{color:var(--amber)}
+  .pillar p{color:var(--muted);font-size:clamp(13.5px,1.15vw,15px);line-height:1.72}
+  .ptags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+  .ptags span{
+    font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+    color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 11px;
+  }
+
+  /* ---------- CASES ---------- */
+  .filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:clamp(26px,3vw,38px)}
+  .chip{
+    font-family:var(--kr);font-size:clamp(12.5px,1.05vw,14px);font-weight:600;
+    color:var(--muted);background:transparent;cursor:pointer;
+    border:1px solid var(--line);border-radius:999px;padding:9px 17px;
+    transition:color .25s ease,border-color .25s ease,background .25s ease;
+  }
+  .chip:hover{color:var(--ink);border-color:var(--faint)}
+  .chip.on{color:var(--amber);border-color:var(--amber);background:rgba(245,179,1,.07)}
+  .chip .ct{font-family:var(--mono);font-size:.82em;color:var(--faint);margin-left:7px}
+  .chip.on .ct{color:var(--amber-deep)}
+
+  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px)}
+  .case{
+    display:flex;flex-direction:column;
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:clamp(22px,2.4vw,30px);min-height:230px;
+    transition:border-color .35s ease,transform .35s ease,opacity .4s ease;
+  }
+  .case:hover{border-color:var(--amber-deep);transform:translateY(-4px)}
+  .case[hidden]{display:none}
+  .case-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}
+  .tag{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--amber);border:1px solid var(--amber-deep);border-radius:999px;padding:4px 10px;
+  }
+  .case-meta{font-family:var(--mono);font-size:10.5px;color:var(--faint);letter-spacing:.04em;text-align:right;line-height:1.5}
+  .case h3{font-weight:800;letter-spacing:-.02em;font-size:clamp(1.1rem,1.5vw,1.3rem);line-height:1.25;margin-bottom:9px}
+  .case .ctx{color:var(--muted);font-size:clamp(13px,1.1vw,14px);line-height:1.65}
+  .metrics{margin-top:auto;padding-top:18px;display:flex;flex-wrap:wrap;gap:18px 26px}
+  .metric .mv{font-family:var(--mono);font-weight:700;font-size:clamp(17px,1.9vw,22px);letter-spacing:-.01em;color:var(--ink)}
+  .metric .mv em{font-style:normal;color:var(--amber)}
+  .metric .ml{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.01em;line-height:1.4}
+
+  @media (max-width:980px){
+    .cases{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:680px){
+    .about-grid{grid-template-columns:1fr}
+    .pillars{grid-template-columns:1fr}
+    .cases{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none}
+  }
 </style>
 </head>
 <body>
@@ -280,6 +414,242 @@
   </div>
 </section>
 
+<!-- ============================ ABOUT ============================ -->
+<section class="section" id="about">
+  <div class="section-head reveal">
+    <div class="idx">01 — About / Positioning</div>
+    <h2 class="section-title">운영자가 아니라,<br><span class="am">사업을 키운</span> 사람.</h2>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-body reveal">
+      <p>
+        가전과 유통, 금융, 식음료, 화장품, 건기식, 관광까지 <b>17년간 폭넓은 카테고리</b>를 거쳤지만,
+        중심은 한 번도 흔들린 적이 없습니다. 설치에서 매출까지 — <b>퍼널 전체를 책임지는 커머스</b>가 제 등뼈입니다.
+      </p>
+      <p>
+        대부분의 대행 경력은 "캠페인을 잘했다"에서 끝납니다. 저는 한 발 더 갔습니다.
+        리테일 미디어 사업의 손익을 직접 들고 <span class="am">3억에서 30억으로, 2년 만에 10배</span> 키웠습니다.
+        매출과 변동비, 공헌이익, 영업이익까지 <b>풀 P&amp;L을 직접 관리</b>한 그로스 리더입니다.
+      </p>
+      <p>
+        삼성닷컴과 GS SHOP, 홈앤쇼핑, 롯데 유통, D2C 자사몰 — 채널은 달라도 방법은 같습니다.
+        넓은 경험을 자랑하지 않고, <b>커머스라는 한 축으로 꿰어</b> 어떤 사업이든 숫자로 키워냅니다.
+      </p>
+    </div>
+
+    <aside class="ways reveal d1">
+      <div class="ways-cap">How I Work</div>
+      <div class="ways-title">광고부터 늘리지 않습니다</div>
+      <div class="step">
+        <div class="sn">01</div>
+        <div class="sb"><b>진단 우선</b><span>데이터 정합성과 측정 환경부터 점검합니다. 새는 곳을 막기 전에 예산을 붓지 않습니다.</span></div>
+      </div>
+      <div class="step">
+        <div class="sn">02</div>
+        <div class="sb"><b>정책 / KPI 설계</b><span>트래픽이 아니라 매출 기준으로 KPI를 다시 정의합니다. 무엇을 성공으로 볼지부터 합의합니다.</span></div>
+      </div>
+      <div class="step">
+        <div class="sn">03</div>
+        <div class="sb"><b>광고 운영 / 그로스</b><span>설계된 구조 위에서 매체와 소재, CRM을 돌려 증분 매출을 만듭니다.</span></div>
+      </div>
+      <div class="ways-foot">
+        롯데하이마트에서 트래픽 KPI를 <b>매출 기준으로 재정의</b>하자고 본부장을 세 번 설득한 일화가
+        이 방식을 가장 잘 보여줍니다. 실행자가 아니라 사고방식을 가진 사람.
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================ PILLARS ============================ -->
+<section class="section" id="pillars">
+  <div class="section-head reveal">
+    <div class="idx">02 — Core Capabilities</div>
+    <h2 class="section-title">사업을 키우는 <span class="am">네 개의 축</span></h2>
+    <p class="section-lead">
+      퍼널의 입구부터 손익의 끝까지. 한 영역의 전문가가 아니라, <b>커머스 그로스의 전 구간</b>을 연결해 본 사람입니다.
+    </p>
+  </div>
+
+  <div class="pillars">
+    <article class="pillar reveal">
+      <div class="pn">P.01</div>
+      <h3>이커머스 / <span class="am">그로스</span></h3>
+      <p>설치에서 방문, 구매, 매출까지 풀퍼널을 설계하고 운영합니다. AARRR 그로스 방법론을 실제 커머스 손익에 적용합니다.</p>
+      <div class="ptags"><span>풀퍼널</span><span>AARRR</span><span>GS SHOP</span><span>홈앤쇼핑</span><span>롯데 유통</span><span>D2C</span></div>
+    </article>
+
+    <article class="pillar reveal d1">
+      <div class="pn">P.02</div>
+      <h3>캠페인 <span class="am">프로모션 기획</span> (IMC)</h3>
+      <p>ATL부터 디지털까지 통합 캠페인을 기획하고 리딩합니다. 소셜과 콘텐츠, 바이럴, 오프라인 프로모션, 플랫폼 구축 PM까지.</p>
+      <div class="ptags"><span>IMC</span><span>ATL~디지털</span><span>소셜 / 콘텐츠</span><span>오프라인 프로모션</span><span>플랫폼 PM</span></div>
+    </article>
+
+    <article class="pillar reveal">
+      <div class="pn">P.03</div>
+      <h3>미디어 사업 / <span class="am">수익화</span></h3>
+      <p>리테일 미디어와 DOOH 광고상품을 기획하고 영업합니다. 풀 P&amp;L을 직접 관리하며 미디어 사업의 손익을 키웁니다.</p>
+      <div class="ptags"><span>리테일 미디어</span><span>롯데 RMN</span><span>DOOH</span><span>광고상품 BM</span><span>풀 P&amp;L</span><span>아마존 글로벌</span></div>
+    </article>
+
+    <article class="pillar reveal d1">
+      <div class="pn">P.04</div>
+      <h3>데이터 + <span class="am">AI</span></h3>
+      <p>측정 환경을 직접 세우고 데이터로 의사결정합니다. AI 툴로 업무를 자동화하고, AI 앱을 직접 출시한 실무형 리더입니다.</p>
+      <div class="ptags"><span>GA / GTM</span><span>MMP / Looker</span><span>SQL / Python</span><span>AI 자동화</span><span>AI 앱 출시</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ============================ CASES ============================ -->
+<section class="section" id="cases">
+  <div class="section-head reveal">
+    <div class="idx">03 — Selected Cases</div>
+    <h2 class="section-title">숫자로 증명한 <span class="am">케이스</span></h2>
+    <p class="section-lead">
+      모든 수치에 기간과 모수를 함께 적었습니다. 과장이 아니라 <b>재현 가능한 방법</b>이라는 뜻입니다.
+    </p>
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="chip on" data-filter="all">전체<span class="ct" id="ct-all"></span></button>
+    <button class="chip" data-filter="commerce">이커머스 / 그로스<span class="ct" id="ct-commerce"></span></button>
+    <button class="chip" data-filter="media">미디어 사업<span class="ct" id="ct-media"></span></button>
+    <button class="chip" data-filter="imc">IMC<span class="ct" id="ct-imc"></span></button>
+  </div>
+
+  <div class="cases" id="cases">
+
+    <!-- ===== COMMERCE ===== -->
+    <article class="case reveal" data-cat="commerce">
+      <div class="case-top"><span class="tag">Commerce</span><div class="case-meta">GS SHOP / 스틱<br>2014–2016</div></div>
+      <h3>GS SHOP 앱 세일즈 풀퍼널</h3>
+      <p class="ctx">설치에서 매출까지 데이터 기반 광고 설계와 크리에이티브 테스트. AARRR 적용.</p>
+      <div class="metrics">
+        <div class="metric"><div class="mv">1.56% <em>→</em> 4.87%</div><div class="ml">브릿지 전환율 (7개월 / 소재 5,000+)</div></div>
+        <div class="metric"><div class="mv"><em>2,000</em>만</div><div class="ml">누적 앱 다운로드</div></div>
+      </div>
+    </article>
+
+    <article class="case reveal d1" data-cat="commerce">
+      <div class="case-top"><span class="tag">Commerce</span><div class="case-meta">홈앤쇼핑 / 스틱<br>2017–2020</div></div>
+      <h3>홈앤쇼핑 앱 세일즈 마케팅</h3>
+      <p class="ctx">설치와 리텐션, 첫구매, 재구매, 매출. 신규 / 기존 / 휴면 / 우수 세그먼트별 광고 설계와 퍼널 기반 신규 미디어 발굴.</p>
+      <div class="metrics">
+        <div class="metric"><div class="mv">4단계</div><div class="ml">세그먼트별 CDJ 전반 운영</div></div>
+      </div>
+    </article>
+
+    <article class="case reveal d2" data-cat="commerce">
+      <div class="case-top"><span class="tag">Commerce</span><div class="case-meta">롯데 유통 / 대홍<br>2021–2024</div></div>
+      <h3>롯데 유통 디지털 퍼포먼스</h3>
+      <p class="ctx">롯데백화점 / 롯데ON / 롯데마트 / 롯데하이마트 Web / App 통합 퍼포먼스.</p>
+      <div class="metrics">
+        <div class="metric"><div class="mv">ROAS <em>~500%</em></div><div class="ml">롯데ON 개선 (방문 약 1.5배↑)</div></div>
+        <div class="metric"><div class="mv"><em>2</em>배+</div><div class="ml">롯데마트 PB 유입 / 매출</div></div>
+      </div>
+    </article>
+
+    <article class="case reveal" data-cat="commerce">
+      <div class="case-top"><span class="tag">Commerce</span><div class="case-meta">롯데하이마트 / 대홍<br>2021–2024</div></div>
+      <h3>롯데하이마트 KPI 재정의</h3>
+      <p class="ctx">트래픽 대신 매출 기준으로 KPI를 재정의. 본부장 3차 설득으로 관철해 적자 턴어라운드에 기여.</p>
+      <div class="metrics">
+        <div class="metric"><div class="mv">매출 기준</div><div class="ml">KPI 재정의 → 턴어라운드 기여</div></div>
+      </div>
+    </article>
+
+    <article class="case reveal d1" data-cat="commerce">
+      <div class="case-top"><span class="tag">Commerce</span><div class="case-meta">쥬비스 / 대홍<br>2023–2025</div></div>
+      <h3>쥬비스 다이어트 퍼포먼스</h3>
+      <p class="ctx">상담 DB 확보 퍼포먼스. 메타 / 틱톡 / 유튜브 위닝 콘텐츠와 AI CRM(Appier AIQUA) 시나리오 설계. 대한민국 광고대상 퍼포먼스 부문 수상.</p>
+      <div class="metrics">
+        <div class="metric"><div class="mv">25만 <em>→</em> 15만</div><div class="ml">CPA 40% 개선</div></div>
+        <div class="metric"><div class="mv"><em>1.5</em>배</div><div class="ml">상담 / 계약 전환율</div></div>
+      </div>
+    </article>
+
+    <article class="case reveal d2" data-cat="commerce">
+      <div class="case-top"><span class="tag">Commerce</span><div class="case-meta">삼성닷컴 / 펑타이<br>2020</div></div>
+      <h3>삼성닷컴 데이터 거버넌스</h3>
+      <p class="ctx">세일즈 퍼포먼스와 측정 정책 / KPI 기준 수립. 통합 리포팅 대시보드 ver.1 구축.</p>
+      <div class="metrics">
+        <div class="metric"><div class="mv">8h <em>→</em> 4h</div><div class="ml">리포팅 시간 (연 100억 규모 / 이해관계자 20명)</div></div>
+        <div class="metric"><div class="mv">약 <em>5</em>년</div><div class="ml">전사 표준으로 정착</div></div>
+      </div>
+    </article>
+
+    <article class="case reveal" data-cat="commerce">
+      <div class="case-top"><span class="tag">Commerce</span><div class="case-meta">핀트 / 대홍<br>2021–2022</div></div>
+      <h3>핀트(fint) 앱 런칭</h3>
+      <p class="ctx">디지털 브랜딩과 퍼포먼스 통합. 설치에서 가입, 계좌개설, 투자전환까지.</p>
+      <div class="metrics">
+        <div class="metric"><div class="mv"><em>200</em>만</div><div class="ml">누적 설치 (런칭 3개월 검색량 2배)</div></div>
+        <div class="metric"><div class="mv"><em>56%</em>↑</div><div class="ml">계좌개설율</div></div>
+      </div>
+    </article>
+
+    <!-- ===== MEDIA BUSINESS ===== -->
+    <article class="case reveal d1" data-cat="media">
+      <div class="case-top"><span class="tag">Media Biz</span><div class="case-meta">롯데그룹 / 대홍<br>2024–2025</div></div>
+      <h3>롯데그룹 미디어 사업 리드</h3>
+      <p class="ctx">디지털 채널과 DOOH 광고상품 기획 / 영업 / BM. 롯데 RMN 런칭 협업. 풀 P&amp;L을 직접 관리한 증분 매출 관점의 미디어 사업.</p>
+      <div class="metrics">
+        <div class="metric"><div class="mv">3억 <em>→</em> 30억</div><div class="ml">전체 궤적 2년 10배</div></div>
+        <div class="metric"><div class="mv"><em>30%</em>↓</div><div class="ml">운영 리소스 (AI 자동화 디렉팅)</div></div>
+      </div>
+    </article>
+
+    <article class="case reveal d2" data-cat="media">
+      <div class="case-top"><span class="tag">Media Biz</span><div class="case-meta">Amazon Ads / 대홍<br>2025–2026</div></div>
+      <h3>아마존 광고 국내 대행 셋업</h3>
+      <p class="ctx">아마존 싱가포르 협업으로 솔루션 국내 대행 셋업. 북미 / 글로벌 K-브랜드 영업과 CTV / Prime Video / Fire TV 통합 피칭.</p>
+      <div class="metrics">
+        <div class="metric"><div class="mv">글로벌</div><div class="ml">신규 사업 셋업 / 마켓별 미디어플랜</div></div>
+      </div>
+    </article>
+
+    <article class="case reveal" data-cat="media">
+      <div class="case-top"><span class="tag">Media Biz</span><div class="case-meta">DCG / 대홍<br>2025</div></div>
+      <h3>퍼포먼스 조직 통합 / Ruthless Prioritization</h3>
+      <p class="ctx">수익성 / 성장성 / 전략가치 / 운영리소스 4축 진단 프레임워크를 직접 설계. 리소스를 상위등급과 신규 미디어로 재배치.</p>
+      <div class="metrics">
+        <div class="metric"><div class="mv">광고주 <em>20</em>개</div><div class="ml">A–D 재분류 (4축 진단)</div></div>
+      </div>
+    </article>
+
+    <!-- ===== IMC ===== -->
+    <article class="case reveal d1" data-cat="imc">
+      <div class="case-top"><span class="tag">IMC</span><div class="case-meta">티머니GO / 스틱<br>2020</div></div>
+      <h3>티머니GO 신규 서비스 런칭 IMC</h3>
+      <p class="ctx">광고와 SNS, 바이럴, 마이크로사이트, 오프라인 이벤트를 통합한 런칭 캠페인 PM.</p>
+      <div class="metrics">
+        <div class="metric"><div class="mv"><em>30</em>만</div><div class="ml">런칭 3개월 회원 (예산 증액)</div></div>
+      </div>
+    </article>
+
+    <article class="case reveal d2" data-cat="imc">
+      <div class="case-top"><span class="tag">IMC</span><div class="case-meta">LG생활건강 / 스틱<br>2018–2019</div></div>
+      <h3>이자녹스 신제품 런칭 IMC</h3>
+      <p class="ctx">SNS 디지털 캠페인 기획 / PM. 체험단과 인플루언서, 바이럴을 통합한 신제품 런칭.</p>
+      <div class="metrics">
+        <div class="metric"><div class="mv">통합 런칭</div><div class="ml">디지털 IMC / 인플루언서</div></div>
+      </div>
+    </article>
+
+    <article class="case reveal" data-cat="imc">
+      <div class="case-top"><span class="tag">IMC</span><div class="case-meta">포드 / 스틱</div></div>
+      <h3>포드 Seoul to Soul 글로벌 캠페인</h3>
+      <p class="ctx">신차 글로벌 캠페인의 국내 오프라인 프로모션을 리딩. ATL을 포함한 풀스펙 통합 캠페인 경험.</p>
+      <div class="metrics">
+        <div class="metric"><div class="mv">글로벌</div><div class="ml">국내 오프라인 프로모션 리딩</div></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
 <script>
 (function(){
   var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -324,6 +694,44 @@
   }
   fill(document.getElementById('trackA'),rowA);
   fill(document.getElementById('trackB'),rowB);
+})();
+
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* ---- scroll reveal ---- */
+  var items=[].slice.call(document.querySelectorAll('.reveal'));
+  if(reduce||!('IntersectionObserver' in window)){
+    items.forEach(function(el){el.classList.add('in');});
+  }else{
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+      });
+    },{rootMargin:'0px 0px -10% 0px',threshold:.12});
+    items.forEach(function(el){io.observe(el);});
+  }
+
+  /* ---- case filter ---- */
+  var cases=[].slice.call(document.querySelectorAll('#cases .case'));
+  var chips=[].slice.call(document.querySelectorAll('#filters .chip'));
+
+  /* count badges */
+  var counts={all:cases.length,commerce:0,media:0,imc:0};
+  cases.forEach(function(c){var k=c.getAttribute('data-cat');if(counts[k]!=null)counts[k]++;});
+  Object.keys(counts).forEach(function(k){
+    var el=document.getElementById('ct-'+k);if(el)el.textContent=counts[k];
+  });
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click',function(){
+      var f=chip.getAttribute('data-filter');
+      chips.forEach(function(c){c.classList.toggle('on',c===chip);});
+      cases.forEach(function(c){
+        c.hidden=!(f==='all'||c.getAttribute('data-cat')===f);
+      });
+    });
+  });
 })();
 </script>
 </body>
