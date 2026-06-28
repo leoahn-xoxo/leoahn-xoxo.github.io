@@ -360,10 +360,104 @@
   @media (prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none}
   }
+
+  /* ---------- NAV (스크롤 반응 고정) ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:13px clamp(20px,3.4vw,40px);
+    background:rgba(11,11,12,.72);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+    transform:translateY(-100%);opacity:0;
+    transition:transform .45s cubic-bezier(.2,.7,.2,1),opacity .45s ease;
+  }
+  .nav.show{transform:none;opacity:1}
+  .nav-mark{
+    font-family:var(--display);font-weight:800;font-size:16px;
+    letter-spacing:.14em;color:var(--ink);text-decoration:none;
+  }
+  .nav-mark .dot{color:var(--amber)}
+  .nav-links{display:flex;gap:clamp(16px,2vw,32px)}
+  .nav-links a{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    color:var(--muted);text-decoration:none;padding:4px 0;position:relative;
+    transition:color .25s ease;
+  }
+  .nav-links a:hover,.nav-links a.active{color:var(--amber)}
+  .nav-links a.active::after{
+    content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--amber);
+  }
+
+  /* ---------- CAREER TIMELINE ---------- */
+  .timeline{position:relative;max-width:840px;margin-top:8px}
+  .timeline::before{
+    content:"";position:absolute;left:6px;top:6px;bottom:6px;width:1px;
+    background:linear-gradient(var(--amber-deep),var(--line));
+  }
+  .tl{position:relative;padding:0 0 clamp(28px,3.4vw,42px) clamp(34px,4vw,52px)}
+  .tl:last-child{padding-bottom:0}
+  .tl::before{
+    content:"";position:absolute;left:0;top:5px;width:13px;height:13px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--amber);
+  }
+  .tl.muted::before{border-color:var(--faint)}
+  .tl-period{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--amber);margin-bottom:6px}
+  .tl.muted .tl-period{color:var(--faint)}
+  .tl-org{font-weight:800;font-size:clamp(1.15rem,1.9vw,1.5rem);letter-spacing:-.02em}
+  .tl-org .sub{color:var(--muted);font-weight:500;font-size:.62em;margin-left:.5em;letter-spacing:0}
+  .tl-role{color:var(--muted);font-size:clamp(13.5px,1.15vw,15px);line-height:1.7;margin-top:8px}
+  .tl-role .now{color:var(--ink);font-weight:600}
+  .tl-prog{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:5px}
+  .tl-prog li{
+    position:relative;padding-left:16px;color:var(--muted);
+    font-size:clamp(12.5px,1.05vw,13.5px);line-height:1.6;
+  }
+  .tl-prog li::before{content:"–";position:absolute;left:0;color:var(--faint)}
+  .tl-prog li b{color:var(--ink);font-weight:600}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(34px,5vw,72px);align-items:end}
+  .contact-cta{font-weight:800;letter-spacing:-.03em;line-height:1.18;font-size:clamp(1.7rem,3.6vw,2.9rem)}
+  .contact-cta .am{color:var(--amber)}
+  .contact-list{display:flex;flex-direction:column;gap:clamp(16px,2vw,22px)}
+  .ci-cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--faint);text-transform:uppercase;margin-bottom:5px}
+  .ci-val{font-size:clamp(15px,1.5vw,19px);color:var(--ink);text-decoration:none;letter-spacing:-.01em;transition:color .25s ease;word-break:break-all}
+  a.ci-val:hover{color:var(--amber)}
+  .ci-note{
+    margin-top:clamp(6px,1vw,10px);padding:14px 16px;
+    background:var(--panel);border:1px solid var(--line);border-left:2px solid var(--amber);border-radius:10px;
+    color:var(--muted);font-size:13px;line-height:1.65;
+  }
+  .ci-note b{color:var(--ink);font-weight:600}
+  .foot{
+    border-top:1px solid var(--line);margin-top:clamp(48px,6vw,80px);padding-top:24px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--faint);
+  }
+
+  @media (max-width:680px){
+    .nav{justify-content:center}
+    .nav-mark{display:none}
+    .nav-links{gap:14px}
+    .nav-links a{font-size:10px;letter-spacing:.08em}
+    .contact-grid{grid-template-columns:1fr;gap:34px;align-items:start}
+  }
 </style>
 </head>
 <body>
-<section class="hero">
+<nav class="nav" id="nav">
+  <a href="#top" class="nav-mark">AHN JUNGHO<span class="dot">.</span></a>
+  <div class="nav-links">
+    <a href="#about">ABOUT</a>
+    <a href="#pillars">CAPABILITIES</a>
+    <a href="#cases">CASES</a>
+    <a href="#career">CAREER</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+</nav>
+
+<section class="hero" id="top">
   <div class="glow"></div>
   <div class="ghost">COMMERCE</div>
   <div class="grain"></div>
@@ -650,6 +744,90 @@
   </div>
 </section>
 
+<!-- ============================ CAREER ============================ -->
+<section class="section" id="career">
+  <div class="section-head reveal">
+    <div class="idx">04 — Career</div>
+    <h2 class="section-title">한 회사의 <span class="am">창립멤버</span>에서<br>사업팀 팀장까지</h2>
+    <p class="section-lead">
+      에이전시 디지털 마케팅에서 출발해 퍼포먼스 조직을 키우고, 지금은 미디어 사업의 손익을 직접 들고 있습니다.
+    </p>
+  </div>
+
+  <div class="timeline">
+    <div class="tl reveal">
+      <div class="tl-period">2021.02 — 현재</div>
+      <div class="tl-org">대홍기획 <span class="sub">롯데 계열 종합광고대행사</span></div>
+      <div class="tl-role"><span class="now">현 Media-X 사업팀 팀장</span> — 리테일 미디어 사업의 기획과 영업, 풀 P&amp;L을 책임집니다.</div>
+      <ul class="tl-prog">
+        <li><b>2025~</b> Media-X 사업팀 팀장 (미디어 사업 수익화)</li>
+        <li><b>2024</b> 커머스퍼포먼스 팀장</li>
+        <li><b>2023</b> 대홍-스푼 통합 퍼포먼스 부문장 (15인 크로스컴퍼니 조직 리딩)</li>
+        <li><b>2021</b> 커머스퍼포먼스팀 팀장</li>
+      </ul>
+    </div>
+
+    <div class="tl reveal d1">
+      <div class="tl-period">2020.07 — 2020.09</div>
+      <div class="tl-org">펑타이코리아 <span class="sub">제일기획 자회사</span></div>
+      <div class="tl-role">미디어 데이터 그룹 T2 팀장 — 삼성닷컴 데이터 거버넌스와 통합 리포팅 구축.</div>
+    </div>
+
+    <div class="tl reveal d1">
+      <div class="tl-period">2009.03 — 2020.06</div>
+      <div class="tl-org">스틱인터랙티브 <span class="sub">현 스푼, 창립멤버</span></div>
+      <div class="tl-role">디지털 마케팅팀 팀장 — GS SHOP / 홈앤쇼핑 앱 그로스, 티머니GO / 이자녹스 런칭 IMC, 포드 글로벌 캠페인까지 11년.</div>
+    </div>
+
+    <div class="tl muted reveal d1">
+      <div class="tl-period">2008</div>
+      <div class="tl-org">캐나다 몬트리올 <span class="sub">어학연수</span></div>
+    </div>
+
+    <div class="tl muted reveal d1">
+      <div class="tl-period">2006.07 — 2007.10</div>
+      <div class="tl-org">DIG커뮤니케이션</div>
+      <div class="tl-role">디지털 마케팅팀 — 커리어의 시작.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACT ============================ -->
+<section class="section" id="contact">
+  <div class="section-head reveal">
+    <div class="idx">05 — Contact</div>
+  </div>
+
+  <div class="contact-grid">
+    <h2 class="contact-cta reveal">
+      다음엔,<br>당신의 사업을<br><span class="am">키울 차례</span>입니다.
+    </h2>
+
+    <div class="contact-list reveal d1">
+      <div>
+        <div class="ci-cap">Email</div>
+        <a class="ci-val" href="mailto:leoflyagain@gmail.com">leoflyagain@gmail.com</a>
+      </div>
+      <div>
+        <div class="ci-cap">Phone</div>
+        <a class="ci-val" href="tel:+821095691782">010-9569-1782</a>
+      </div>
+      <div>
+        <div class="ci-cap">Based in</div>
+        <div class="ci-val">서울 영등포구 문래로 — 17년 차 디지털 그로스 마케팅 리더</div>
+      </div>
+      <div class="ci-note">
+        2026년 3월부터 8월까지 육아휴직 중입니다. <b>빠른 투입과 초기 밀착 대응</b>이 가능합니다.
+      </div>
+    </div>
+  </div>
+
+  <div class="foot reveal">
+    <span>AHN JUNGHO — BRAND &amp; GROWTH MARKETING LEADER</span>
+    <span>COMMERCE-LED / SINCE 2008</span>
+  </div>
+</section>
+
 <script>
 (function(){
   var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -732,6 +910,32 @@
       });
     });
   });
+
+  /* ---- nav: 스크롤 반응 노출 + 스크롤스파이 ---- */
+  var nav=document.getElementById('nav');
+  var navLinks=[].slice.call(document.querySelectorAll('.nav-links a'));
+  function onScroll(){
+    if(nav)nav.classList.toggle('show',window.scrollY>window.innerHeight*0.7);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  if('IntersectionObserver' in window){
+    var sections=navLinks
+      .map(function(a){return document.querySelector(a.getAttribute('href'));})
+      .filter(Boolean);
+    var spy=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var id=e.target.id;
+          navLinks.forEach(function(a){
+            a.classList.toggle('active',a.getAttribute('href')==='#'+id);
+          });
+        }
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    sections.forEach(function(s){spy.observe(s);});
+  }
 })();
 </script>
 </body>
