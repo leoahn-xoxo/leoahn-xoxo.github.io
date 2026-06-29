@@ -448,12 +448,64 @@
     font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--faint);
   }
 
+  /* ---------- CTA buttons ---------- */
+  .now{
+    margin-top:clamp(20px,2.4vw,30px);font-size:clamp(13px,1.15vw,15px);color:var(--muted);
+    letter-spacing:-.01em;opacity:0;transform:translateY(14px);
+    animation:rise .8s .66s forwards cubic-bezier(.2,.7,.2,1);
+  }
+  .now b{color:var(--ink);font-weight:600}
+  .cta-row{
+    display:flex;flex-wrap:wrap;gap:12px;margin-top:14px;
+    opacity:0;transform:translateY(14px);animation:rise .8s .74s forwards cubic-bezier(.2,.7,.2,1);
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;font-family:var(--kr);
+    font-size:14.5px;font-weight:700;text-decoration:none;padding:12px 22px;
+    border-radius:999px;letter-spacing:-.01em;transition:background .25s ease,border-color .25s ease,color .25s ease;
+  }
+  .btn-primary{background:var(--amber);color:#1a1300;border:1px solid var(--amber)}
+  .btn-primary:hover{background:var(--amber-deep);border-color:var(--amber-deep)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--ink)}
+  .btn .ar{font-family:var(--mono);font-weight:700;font-size:.9em}
+
+  /* nav resume pill */
+  .nav-links a.nav-cta{
+    color:#1a1300;background:var(--amber);padding:7px 15px;border-radius:999px;
+    font-family:var(--kr);font-weight:700;font-size:12.5px;letter-spacing:-.01em;
+  }
+  .nav-links a.nav-cta:hover{color:#1a1300;background:var(--amber-deep)}
+  .nav-links a.nav-cta::after{display:none}
+
+  /* ---------- case media (실제 작업물 이미지) ---------- */
+  .case-media{
+    position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;
+    margin-bottom:16px;background:var(--panel);border:1px solid var(--line);
+  }
+  .case-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .mph{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    color:var(--faint);font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  }
+
+  /* ---------- recruiter at-a-glance ---------- */
+  .glance{margin-bottom:6px}
+  .gr{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .gr:first-child{padding-top:0}
+  .gk{flex:none;width:84px;color:var(--faint);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding-top:3px}
+  .gv{color:var(--ink);font-size:14.5px;line-height:1.55}
+  .gv b{color:var(--amber);font-weight:600}
+  .ci-actions{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 4px}
+
   @media (max-width:680px){
-    .nav{justify-content:center}
+    .nav{justify-content:center;flex-wrap:wrap;gap:10px 14px}
     .nav-mark{display:none}
-    .nav-links{gap:14px}
+    .nav-links{gap:12px}
     .nav-links a{font-size:10px;letter-spacing:.08em}
+    .nav-links a.nav-cta{font-size:11px;padding:6px 12px}
     .contact-grid{grid-template-columns:1fr;gap:34px;align-items:start}
+    .cta-row .btn{flex:1 1 auto;justify-content:center}
   }
 </style>
 </head>
@@ -466,6 +518,7 @@
     <a href="#cases">CASES</a>
     <a href="#career">CAREER</a>
     <a href="#contact">CONTACT</a>
+    <a href="assets/ahn-jungho-resume.pdf" class="nav-cta" download>이력서</a>
   </div>
 </nav>
 
@@ -508,6 +561,12 @@
       <div class="stat"><div class="n"><em>10</em>x</div><div class="l">미디어 사업 매출 2년</div></div>
       <div class="stat"><div class="n">15<span class="u">인</span></div><div class="l">크로스컴퍼니 조직 리딩</div></div>
       <div class="stat"><div class="n"><em>40</em>+</div><div class="l">담당 브랜드 카테고리</div></div>
+    </div>
+
+    <div class="now">현 <b>대홍기획 Media-X 사업팀 팀장</b> / 디지털 그로스 마케팅 17년차</div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="assets/ahn-jungho-resume.pdf" download>이력서 다운로드 <span class="ar">↓</span></a>
+      <a class="btn btn-ghost" href="#contact">연락하기</a>
     </div>
   </div>
 
@@ -654,6 +713,7 @@
 
     <article class="case reveal d1" data-cat="commerce">
       <div class="case-top"><span class="tag">Commerce</span><div class="case-meta">홈앤쇼핑 / 스틱<br>2017–2020</div></div>
+      <div class="case-media"><span class="mph">홈앤쇼핑</span><img src="assets/cases/homeshopping.jpg" alt="홈앤쇼핑 앱 세일즈 마케팅" loading="lazy" onerror="this.remove()"></div>
       <h3>홈앤쇼핑 앱 세일즈 마케팅</h3>
       <p class="ctx">설치와 리텐션, 첫구매, 재구매, 매출. 신규 / 기존 / 휴면 / 우수 세그먼트별 광고 설계와 퍼널 기반 신규 미디어 발굴.</p>
       <div class="metrics">
@@ -663,6 +723,7 @@
 
     <article class="case reveal d2" data-cat="commerce">
       <div class="case-top"><span class="tag">Commerce</span><div class="case-meta">롯데 유통 / 대홍<br>2021–2024</div></div>
+      <div class="case-media"><span class="mph">롯데 유통</span><img src="assets/cases/lotte-retail.jpg" alt="롯데 유통 디지털 퍼포먼스" loading="lazy" onerror="this.remove()"></div>
       <h3>롯데 유통 디지털 퍼포먼스</h3>
       <p class="ctx">롯데백화점 / 롯데ON / 롯데마트 / 롯데하이마트 Web / App 통합 퍼포먼스.</p>
       <div class="metrics">
@@ -673,6 +734,7 @@
 
     <article class="case reveal" data-cat="commerce">
       <div class="case-top"><span class="tag">Commerce</span><div class="case-meta">롯데하이마트 / 대홍<br>2021–2024</div></div>
+      <div class="case-media"><span class="mph">롯데하이마트</span><img src="assets/cases/himart.jpg" alt="롯데하이마트 KPI 재정의" loading="lazy" onerror="this.remove()"></div>
       <h3>롯데하이마트 KPI 재정의</h3>
       <p class="ctx">트래픽 대신 매출 기준으로 KPI를 재정의. 본부장 3차 설득으로 관철해 적자 턴어라운드에 기여.</p>
       <div class="metrics">
@@ -682,6 +744,7 @@
 
     <article class="case reveal d1" data-cat="commerce">
       <div class="case-top"><span class="tag">Commerce</span><div class="case-meta">쥬비스 / 대홍<br>2023–2025</div></div>
+      <div class="case-media"><span class="mph">쥬비스</span><img src="assets/cases/juvis.jpg" alt="쥬비스 다이어트 퍼포먼스" loading="lazy" onerror="this.remove()"></div>
       <h3>쥬비스 다이어트 퍼포먼스</h3>
       <p class="ctx">상담 DB 확보 퍼포먼스. 메타 / 틱톡 / 유튜브 위닝 콘텐츠와 AI CRM(Appier AIQUA) 시나리오 설계. 대한민국 광고대상 퍼포먼스 부문 수상.</p>
       <div class="metrics">
@@ -692,6 +755,7 @@
 
     <article class="case reveal d2" data-cat="commerce">
       <div class="case-top"><span class="tag">Commerce</span><div class="case-meta">삼성닷컴 / 펑타이<br>2020</div></div>
+      <div class="case-media"><span class="mph">삼성닷컴</span><img src="assets/cases/samsung.jpg" alt="삼성닷컴 데이터 거버넌스" loading="lazy" onerror="this.remove()"></div>
       <h3>삼성닷컴 데이터 거버넌스</h3>
       <p class="ctx">세일즈 퍼포먼스와 측정 정책 / KPI 기준 수립. 통합 리포팅 대시보드 ver.1 구축.</p>
       <div class="metrics">
@@ -702,6 +766,7 @@
 
     <article class="case reveal" data-cat="commerce">
       <div class="case-top"><span class="tag">Commerce</span><div class="case-meta">핀트 / 대홍<br>2021–2022</div></div>
+      <div class="case-media"><span class="mph">핀트</span><img src="assets/cases/fint.jpg" alt="핀트 앱 런칭" loading="lazy" onerror="this.remove()"></div>
       <h3>핀트(fint) 앱 런칭</h3>
       <p class="ctx">디지털 브랜딩과 퍼포먼스 통합. 설치에서 가입, 계좌개설, 투자전환까지.</p>
       <div class="metrics">
@@ -746,6 +811,7 @@
 
     <article class="case reveal d2" data-cat="media">
       <div class="case-top"><span class="tag">Media Biz</span><div class="case-meta">Amazon Ads / 대홍<br>2025–2026</div></div>
+      <div class="case-media"><span class="mph">Amazon Ads</span><img src="assets/cases/amazon.jpg" alt="아마존 광고 국내 대행 셋업" loading="lazy" onerror="this.remove()"></div>
       <h3>아마존 광고 국내 대행 셋업</h3>
       <p class="ctx">아마존 싱가포르 협업으로 솔루션 국내 대행 셋업. 북미 / 글로벌 K-브랜드 영업과 CTV / Prime Video / Fire TV 통합 피칭.</p>
       <div class="metrics">
@@ -755,6 +821,7 @@
 
     <article class="case reveal" data-cat="media">
       <div class="case-top"><span class="tag">Media Biz</span><div class="case-meta">DCG / 대홍<br>2025</div></div>
+      <div class="case-media"><span class="mph">DCG</span><img src="assets/cases/dcg.jpg" alt="퍼포먼스 조직 통합 Ruthless Prioritization" loading="lazy" onerror="this.remove()"></div>
       <h3>퍼포먼스 조직 통합 / Ruthless Prioritization</h3>
       <p class="ctx">수익성 / 성장성 / 전략가치 / 운영리소스 4축 진단 프레임워크를 직접 설계. 리소스를 상위등급과 신규 미디어로 재배치.</p>
       <div class="metrics">
@@ -765,6 +832,7 @@
     <!-- ===== IMC ===== -->
     <article class="case reveal d1" data-cat="imc">
       <div class="case-top"><span class="tag">IMC</span><div class="case-meta">티머니GO / 스틱<br>2020</div></div>
+      <div class="case-media"><span class="mph">티머니GO</span><img src="assets/cases/tmoney.jpg" alt="티머니GO 신규 서비스 런칭 IMC" loading="lazy" onerror="this.remove()"></div>
       <h3>티머니GO 신규 서비스 런칭 IMC</h3>
       <p class="ctx">광고와 SNS, 바이럴, 마이크로사이트, 오프라인 이벤트를 통합한 런칭 캠페인 PM.</p>
       <div class="metrics">
@@ -774,6 +842,7 @@
 
     <article class="case reveal d2" data-cat="imc">
       <div class="case-top"><span class="tag">IMC</span><div class="case-meta">LG생활건강 / 스틱<br>2018–2019</div></div>
+      <div class="case-media"><span class="mph">이자녹스</span><img src="assets/cases/isaknox.jpg" alt="이자녹스 신제품 런칭 IMC" loading="lazy" onerror="this.remove()"></div>
       <h3>이자녹스 신제품 런칭 IMC</h3>
       <p class="ctx">SNS 디지털 캠페인 기획 / PM. 체험단과 인플루언서, 바이럴을 통합한 신제품 런칭.</p>
       <div class="metrics">
@@ -783,6 +852,7 @@
 
     <article class="case reveal" data-cat="imc">
       <div class="case-top"><span class="tag">IMC</span><div class="case-meta">포드 / 스틱</div></div>
+      <div class="case-media"><span class="mph">포드</span><img src="assets/cases/ford.jpg" alt="포드 Seoul to Soul 글로벌 캠페인" loading="lazy" onerror="this.remove()"></div>
       <h3>포드 Seoul to Soul 글로벌 캠페인</h3>
       <p class="ctx">신차 글로벌 캠페인의 국내 오프라인 프로모션을 리딩. ATL을 포함한 풀스펙 통합 캠페인 경험.</p>
       <div class="metrics">
@@ -853,6 +923,18 @@
     </h2>
 
     <div class="contact-list reveal d1">
+      <div class="glance">
+        <div class="gr"><div class="gk">현직</div><div class="gv">대홍기획 Media-X 사업팀 팀장</div></div>
+        <div class="gr"><div class="gk">경력</div><div class="gv">17년차 <b>디지털 그로스 / 커머스</b></div></div>
+        <div class="gr"><div class="gk">전문</div><div class="gv">퍼포먼스 / 리테일 미디어 / 데이터 / AI</div></div>
+        <div class="gr"><div class="gk">희망</div><div class="gv">브랜드 / 그로스 / 커머스 마케팅 리더 (인하우스 / 에이전시)</div></div>
+      </div>
+
+      <div class="ci-actions">
+        <a class="btn btn-primary" href="assets/ahn-jungho-resume.pdf" download>이력서 다운로드 <span class="ar">↓</span></a>
+        <a class="btn btn-ghost" href="mailto:leoflyagain@gmail.com">이메일</a>
+      </div>
+
       <div>
         <div class="ci-cap">Email</div>
         <a class="ci-val" href="mailto:leoflyagain@gmail.com">leoflyagain@gmail.com</a>
@@ -860,10 +942,6 @@
       <div>
         <div class="ci-cap">Phone</div>
         <a class="ci-val" href="tel:+821095691782">010-9569-1782</a>
-      </div>
-      <div>
-        <div class="ci-cap">Based in</div>
-        <div class="ci-val">서울 영등포구 문래로 — 17년 차 디지털 그로스 마케팅 리더</div>
       </div>
       <div class="ci-note">
         2026년 3월부터 8월까지 육아휴직 중입니다. <b>빠른 투입과 초기 밀착 대응</b>이 가능합니다.
