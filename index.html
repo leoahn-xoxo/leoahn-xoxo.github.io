@@ -89,7 +89,7 @@
   .reveal.in{opacity:1;transform:none}
 
   /* ABOUT */
-  .abouttop{max-width:780px;margin-bottom:clamp(44px,6vw,76px)}
+  .abouttop{max-width:820px}
   .alead{font-family:var(--grot);font-weight:900;font-size:clamp(1.7rem,3vw,2.7rem);line-height:1.28;letter-spacing:-.025em}
   .alead b{color:var(--gold)}
   .atx{margin-top:20px;font-size:clamp(15px,1.15vw,17px);line-height:1.8;color:var(--mut)}
@@ -103,6 +103,25 @@
   .step:last-child::before{display:none}
   .step h4{font-family:var(--kr);font-weight:800;font-size:clamp(1.3rem,1.9vw,1.85rem);letter-spacing:-.02em;line-height:1.2;margin:18px 0 9px}
   .step p{font-size:13.5px;line-height:1.58;color:var(--mut)}
+  .aboutsec{margin-top:clamp(42px,5.5vw,68px)}
+  /* 마케팅 스펙트럼 — 상승 계단 */
+  .spec{display:flex;align-items:flex-end;gap:clamp(8px,1.1vw,14px);height:clamp(180px,21vw,250px)}
+  .sbar{flex:1;border:1px solid var(--line);border-bottom:none;border-radius:12px 12px 0 0;background:var(--card);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(13px,1.4vw,18px) clamp(11px,1.2vw,16px)}
+  .sbar .st{font-family:var(--kr);font-weight:800;font-size:clamp(13px,1.4vw,18px);letter-spacing:-.01em;line-height:1.2}
+  .sbar .ss{font-size:11.5px;color:var(--mut);margin-top:6px;line-height:1.4}
+  .sbar.hi{border-color:var(--gold);background:linear-gradient(180deg,rgba(245,179,1,.17),rgba(245,179,1,.03))}
+  .sbar.hi .st{color:var(--gold)}
+  .speccap{margin-top:18px;font-size:clamp(13px,1.05vw,15px);color:var(--mut);line-height:1.65}
+  .speccap b{color:var(--ink);font-weight:600}
+  /* 그로스해킹 — AARRR 퍼널 */
+  .funnel{display:flex;flex-direction:column;align-items:center;gap:8px}
+  .fn{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:13px 18px;display:flex;justify-content:center;align-items:center;gap:12px;text-align:center}
+  .fn .fe{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--gold);letter-spacing:.06em}
+  .fn .fk{font-family:var(--kr);font-weight:800;font-size:clamp(14px,1.3vw,16px)}
+  .fn .fv{font-size:11.5px;color:var(--mut)}
+  .fn:nth-child(1){width:100%}.fn:nth-child(2){width:87%}.fn:nth-child(3){width:74%}.fn:nth-child(4){width:61%}.fn:nth-child(5){width:48%}
+  .fn.hi{border-color:var(--gold);background:linear-gradient(180deg,rgba(245,179,1,.13),transparent)}
+  .fn.hi .fk{color:var(--gold)}
 
   /* CAREER */
   .tl{display:grid;grid-template-columns:155px 1fr;gap:clamp(14px,2.5vw,40px);padding:22px 0;border-top:1px solid var(--line)}
@@ -198,6 +217,9 @@
     .caps{grid-template-columns:1fr}
     .flow{grid-template-columns:1fr 1fr;row-gap:28px}
     .step::before{display:none}
+    .spec{height:auto;flex-direction:column;align-items:stretch;gap:8px}
+    .sbar{height:auto!important;border-bottom:1px solid var(--line);border-radius:10px}
+    .fn{width:100%!important}
     .dc{grid-template-columns:1fr}
     .dc .media{min-height:200px}
     .dc:nth-child(even) .media{order:0}
@@ -261,12 +283,37 @@
       <p class="alead">마케팅 전략과 기획, 운영을 두루 맡아왔고, 최근에는 <b>리테일 미디어 사업</b>과 P&amp;L을 직접 관리했습니다.</p>
       <p class="atx">가전과 유통, 금융, 식음료, 화장품, 건기식, 관광까지 폭넓은 카테고리를 거쳤지만, 일의 중심은 늘 <b>커머스</b>였습니다.</p>
     </div>
-    <div class="flowlbl">일하는 방식 / HOW I WORK</div>
-    <div class="flow">
-      <div class="step"><div class="no">01</div><h4>진단</h4><p>데이터 정합성과 측정 환경부터 점검합니다. 새는 곳을 막기 전에 예산을 늘리지 않습니다.</p></div>
-      <div class="step"><div class="no">02</div><h4>가설 설계</h4><p>문제를 가설로 세우고, 트래픽이 아니라 매출 기준으로 KPI와 정책을 정의합니다.</p></div>
-      <div class="step"><div class="no">03</div><h4>검증</h4><p>빠르게 실험하고 측정해, 되는 것과 안 되는 것을 가립니다.</p></div>
-      <div class="step"><div class="no">04</div><h4>인사이트 → 그로스</h4><p>검증된 인사이트를 매체 / 소재 / CRM으로 확장해 증분 성과로 만듭니다.</p></div>
+    <div class="aboutsec">
+      <div class="flowlbl">마케팅 스펙트럼 / SPECTRUM</div>
+      <div class="spec">
+        <div class="sbar" style="height:46%"><div class="st">진단 / 분석</div><div class="ss">데이터 / 측정 환경</div></div>
+        <div class="sbar" style="height:60%"><div class="st">전략 / 정책</div><div class="ss">KPI / 정책 수립</div></div>
+        <div class="sbar" style="height:74%"><div class="st">캠페인 기획</div><div class="ss">IMC / 콘텐츠 / 소셜</div></div>
+        <div class="sbar" style="height:87%"><div class="st">미디어 운영</div><div class="ss">퍼포먼스 / 최적화</div></div>
+        <div class="sbar hi" style="height:100%"><div class="st">미디어 사업</div><div class="ss">광고 수익화 / P&amp;L</div></div>
+      </div>
+      <p class="speccap">대부분의 마케팅이 <b>미디어 운영</b>에서 멈출 때, 저는 한 단계 더 나아가 <b>미디어 사업(수익화)</b>까지 직접 맡았습니다.</p>
+    </div>
+
+    <div class="aboutsec">
+      <div class="flowlbl">일하는 방식 / HOW I WORK</div>
+      <div class="flow">
+        <div class="step"><div class="no">01</div><h4>진단</h4><p>데이터 정합성과 측정 환경부터 점검합니다. 새는 곳을 막기 전에 예산을 늘리지 않습니다.</p></div>
+        <div class="step"><div class="no">02</div><h4>가설 설계</h4><p>문제를 가설로 세우고, 트래픽이 아니라 매출 기준으로 KPI와 정책을 정의합니다.</p></div>
+        <div class="step"><div class="no">03</div><h4>검증</h4><p>빠르게 실험하고 측정해, 되는 것과 안 되는 것을 가립니다.</p></div>
+        <div class="step"><div class="no">04</div><h4>인사이트</h4><p>검증에서 얻은 인사이트를 다음 의사결정의 기준으로 만듭니다.</p></div>
+      </div>
+    </div>
+
+    <div class="aboutsec">
+      <div class="flowlbl">그로스해킹 / AARRR</div>
+      <div class="funnel">
+        <div class="fn"><span class="fe">A</span><span class="fk">획득</span><span class="fv">설치 / 유입</span></div>
+        <div class="fn"><span class="fe">A</span><span class="fk">활성화</span><span class="fv">첫 구매 / 전환</span></div>
+        <div class="fn"><span class="fe">R</span><span class="fk">유지</span><span class="fv">리텐션 / CRM</span></div>
+        <div class="fn hi"><span class="fe">R</span><span class="fk">수익</span><span class="fv">매출 / LTV</span></div>
+        <div class="fn hi"><span class="fe">R</span><span class="fk">추천</span><span class="fv">확산</span></div>
+      </div>
     </div>
   </div>
 </section>
