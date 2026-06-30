@@ -141,6 +141,35 @@
   .g.big .media{aspect-ratio:16/8}
   .g[hidden]{display:none}
 
+  /* DEEP DIVE */
+  .deep{display:flex;flex-direction:column;gap:16px}
+  .dc{display:grid;grid-template-columns:minmax(0,40%) 1fr;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:border-color .35s}
+  .dc:hover{border-color:var(--goldd)}
+  .dc .media{position:relative;min-height:300px}
+  .dc:nth-child(even) .media{order:2}
+  .dc .body{padding:clamp(26px,3vw,46px);display:flex;flex-direction:column}
+  .dc .tg{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--gold)}
+  .dc h3{font-family:var(--grot);font-weight:900;font-size:clamp(1.45rem,2.3vw,2.15rem);letter-spacing:-.02em;line-height:1.12;margin:10px 0 5px}
+  .dc .yr{font-family:var(--kr);font-size:12px;color:var(--mut);margin-bottom:20px}
+  .dc .sa{display:flex;flex-direction:column;gap:13px;margin-bottom:6px}
+  .dc .sa .r{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start}
+  .dc .sa .k{font-family:var(--kr);font-size:12px;font-weight:800;color:var(--gold);padding-top:2px}
+  .dc .sa .v{font-size:13.5px;line-height:1.62;color:var(--mut)}
+  .dc .sa .v b{color:var(--ink);font-weight:600}
+  .dc .metric{margin-top:auto;padding-top:20px;font-family:var(--grot);font-weight:900;font-size:clamp(1.7rem,2.3vw,2.3rem);letter-spacing:-.02em;line-height:1}
+  .dc .metric em{font-style:normal;color:var(--gold)}
+  .dc .metric small{display:block;font-family:var(--kr);font-weight:400;font-size:.42em;color:var(--mut);margin-top:9px;letter-spacing:0;line-height:1.4}
+  .ai{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(26px,3vw,46px)}
+  .ai .tg{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--gold)}
+  .ai h3{font-family:var(--grot);font-weight:900;font-size:clamp(1.45rem,2.3vw,2.15rem);letter-spacing:-.02em;margin:10px 0 12px}
+  .ai p{max-width:72ch;font-size:clamp(14px,1.1vw,15.5px);line-height:1.72;color:var(--mut)}
+  .ai p b{color:var(--ink);font-weight:600}
+  .ai .loop{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:22px 0 18px}
+  .ai .loop span{font-family:var(--kr);font-size:12.5px;font-weight:600;color:var(--ink);background:#0d0d10;border:1px solid var(--line);border-radius:999px;padding:8px 14px}
+  .ai .loop i{color:var(--gold);font-style:normal}
+  .ai .tools{display:flex;flex-wrap:wrap;gap:7px}
+  .ai .tools span{font-family:var(--mono);font-size:11px;color:var(--mut);background:#0d0d10;border:1px solid var(--line);border-radius:8px;padding:7px 11px}
+
   /* CONTACT */
   .contact{padding:clamp(72px,10vw,150px) var(--gut);text-align:center;border-top:1px solid var(--line)}
   .contact .ix{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--gold);margin-bottom:18px}
@@ -156,6 +185,9 @@
     .gal{grid-template-columns:repeat(2,1fr)}
     .g.big{grid-column:span 2}
     .caps,.about,.ways{grid-template-columns:1fr}
+    .dc{grid-template-columns:1fr}
+    .dc .media{min-height:200px}
+    .dc:nth-child(even) .media{order:0}
     .tl{grid-template-columns:1fr;gap:6px}
     .cover .row{flex-direction:column;align-items:flex-start}
     .nav .lk{display:none}
@@ -173,6 +205,7 @@
     <a href="#career">CAREER</a>
     <a href="#cap">역량</a>
     <a href="#work">WORK</a>
+    <a href="#deep">심화</a>
     <a href="#contact">CONTACT</a>
   </div>
 </nav>
@@ -249,7 +282,7 @@
     <div class="cap"><div class="cn">P.01</div><h3>이커머스 / 그로스</h3><p>설치와 유입에서 구매, 리텐션, 매출까지 풀퍼널을 설계하고 운영합니다. AARRR 그로스 방법론을 실제 커머스 손익에 적용해 전환과 매출을 함께 끌어올립니다.</p><div class="rf"><span>GS SHOP <em>전환율 3배</em></span><span>롯데 유통 <em>ROAS ~500%</em></span><span>홈앤쇼핑</span><span>핀트 <em>200만</em></span><span>삼성닷컴</span><span>D2C 자사몰</span></div></div>
     <div class="cap"><div class="cn">P.02</div><h3>캠페인 프로모션 기획 (IMC)</h3><p>ATL부터 디지털까지 통합 캠페인을 기획하고 리딩합니다. 소셜, 콘텐츠, 바이럴, 오프라인 프로모션, 플랫폼 구축 PM까지 전 영역을 아우릅니다.</p><div class="rf"><span>티머니GO <em>30만</em></span><span>이자녹스 런칭</span><span>포드코리아 Seoul to Soul</span><span>갤럭시 인플루언서</span><span>신일 제습기</span></div></div>
     <div class="cap"><div class="cn">P.03</div><h3>미디어 사업 / 수익화</h3><p>리테일 미디어와 DOOH 광고상품을 기획하고 영업합니다. 풀 P&amp;L을 직접 관리하며 증분 매출 관점에서 미디어 사업의 손익을 키웁니다.</p><div class="rf"><span>롯데 RMN <em>2년 10배</em></span><span>Amazon Ads</span><span>DCG 조직 통합</span><span>DOOH 패키지</span><span>롯데 멤버스 / 시네마</span></div></div>
-    <div class="cap"><div class="cn">P.04</div><h3>데이터 + AI</h3><p>측정 환경을 직접 세우고 데이터로 의사결정합니다. AI로 업무를 자동화하고, AI 앱을 직접 출시한 실무형 리더입니다.</p><div class="rf"><span>삼성닷컴 <em>8h→4h</em></span><span>AI 자동화 <em>30%↓</em></span><span>AI 앱 출시</span><span>GA / GTM / MMP</span><span>SQL / Python</span></div></div>
+    <div class="cap"><div class="cn">P.04</div><h3>데이터 + AI</h3><p>측정 환경을 직접 세우고 데이터로 의사결정합니다. AI를 실행 속도를 높이는 도구로 써서, 문제를 빠르게 만들어 검증하는 실무형 리더입니다.</p><div class="rf"><span>삼성닷컴 <em>8h→4h</em></span><span>업무 자동화</span><span>학습툴 직접 제작</span><span>GA / GTM / MMP</span><span>SQL / Python</span></div></div>
   </div>
 </section>
 
@@ -336,11 +369,76 @@
   </div>
 </section>
 
-<!-- 심화 케이스(컨택 전): 쿠팡 면접 자료 받는 대로 STAR 구조로 추가 예정 -->
+<!-- ============================ DEEP DIVE ============================ -->
+<section class="sec" id="deep">
+  <div class="shd reveal">
+    <h2>문제를 어떻게 <b>풀었나</b></h2>
+    <span class="ix">05 — Deep Dive</span>
+    <p>대표 케이스 셋을 <b>문제 / 접근 / 결과</b>로 자세히 풀었습니다. 숫자 뒤의 사고 과정을 봐주세요.</p>
+  </div>
+  <div class="deep">
+
+    <article class="dc reveal">
+      <div class="media im"><span class="mph">삼성닷컴 통합 대시보드</span><img src="assets/cases/samsung.jpg" alt="삼성닷컴 데이터 거버넌스" loading="lazy" onerror="this.remove()"><span class="duo"></span></div>
+      <div class="body">
+        <span class="tg">DEEP DIVE / DATA GOVERNANCE</span>
+        <h3>삼성닷컴 데이터 거버넌스</h3>
+        <div class="yr">2020 / 펑타이코리아 — Media &amp; Data Group T2 팀장</div>
+        <div class="sa">
+          <div class="r"><span class="k">문제</span><span class="v">갤럭시 제외 <b>연 100억 이상</b>, 월 5~10개 캠페인을 집행하는데 담당자마다 KPI 정의가 달라 ROI 비교가 불가능했고, 예산 배분이 직관에 의존했습니다.</span></div>
+          <div class="r"><span class="k">접근</span><span class="v">GA와 Adobe Analytics를 묶는 통합 측정 정책을 메인 담당으로 신규 설계. 삼성 본사 선임과 큰 방향을 정렬하고 내부 약 <b>20명과 1:1로 조율</b>, 9개 필드로 CID / UTM 태깅을 표준화하고 <b>19개 품목 통합 대시보드 ver.1</b>을 직접 기획하고 구축했습니다.</span></div>
+          <div class="r"><span class="k">결과</span><span class="v">주간 리포팅이 절반으로 줄고, <b>삼성전자 전사 표준</b>으로 채택돼 제일기획 갤럭시 라인까지 확장. <b>5년이 지난 지금도 운영</b>되고 있습니다.</span></div>
+        </div>
+        <div class="metric">8h → <em>4h</em><small>주간 리포팅 시간 / 전사 표준 채택 후 5년 운영</small></div>
+      </div>
+    </article>
+
+    <article class="dc reveal">
+      <div class="media im"><span class="mph">쥬비스 다이어트</span><img src="assets/cases/juvis.jpg" alt="쥬비스 퍼포먼스와 사업 KPI" loading="lazy" onerror="this.remove()"><span class="duo"></span></div>
+      <div class="body">
+        <span class="tg">DEEP DIVE / PERFORMANCE</span>
+        <h3>쥬비스 — 광고를 넘어 계약까지</h3>
+        <div class="yr">2023 / 대홍기획 — 빅데이터퍼포먼스팀 수석, PM</div>
+        <div class="sa">
+          <div class="r"><span class="k">문제</span><span class="v">상담 신청 DB 확보가 미션이었고 CPA 목표는 매우 도전적이었습니다. 진짜 병목은 <b>광고 소재 생산 프로세스의 비효율</b>이었습니다.</span></div>
+          <div class="r"><span class="k">접근</span><span class="v">광고 KPI를 넘어 <b>상담 → 센터 방문 → 실제 계약</b>까지 단계별 전환율을 사업 KPI로 직접 정의. 소재 생산을 재설계해(영상은 사용기와 인플루언서로 직접, 이미지는 대행 제작) 매체별로 빠르게 파일럿하고, Appier AIQUA로 CRM 시나리오를 직접 설계했습니다.</span></div>
+          <div class="r"><span class="k">결과</span><span class="v">CPA 25만 → 15만으로 약 40% 개선, 상담과 계약 전환율 1.5배. 실제 계약(매출)까지 함께 성장했고 <b>대한민국 광고대상 퍼포먼스 부문</b>을 수상했습니다.</span></div>
+        </div>
+        <div class="metric">CPA <em>40%</em>↓<small>25만 → 15만 / 계약 전환 1.5배 / 대한민국 광고대상 수상</small></div>
+      </div>
+    </article>
+
+    <article class="dc reveal">
+      <div class="media im"><span class="mph">GS SHOP 앱</span><img src="assets/cases/gsshop.jpg" alt="GS SHOP 크리에이티브 시스템화" loading="lazy" onerror="this.remove()"><span class="duo"></span></div>
+      <div class="body">
+        <span class="tg">DEEP DIVE / CREATIVE SYSTEM</span>
+        <h3>GS SHOP — 테스트를 자산으로</h3>
+        <div class="yr">2014–2015 / 스틱인터랙티브 — 앱 마케팅 PM</div>
+        <div class="sa">
+          <div class="r"><span class="k">문제</span><span class="v">경쟁사는 크리에이티브를 정형화하는 방향으로 갔지만 효율은 정체였습니다. 무엇이 통하는지 <b>데이터로 가려낼 체계</b>가 필요했습니다.</span></div>
+          <div class="r"><span class="k">접근</span><span class="v">7개월간 <b>5,000여 개 크리에이티브</b>를 운영하며 매체별 / 소재별 / iOS / 안드로이드별로 CTR과 전환율, CPI를 분리 측정. 브릿지 페이지 네이티브 UX를 실험하고, 검증된 인사이트를 <b>디자인 가이드로 문서화</b>해 지속 업데이트 체계로 만들었습니다.</span></div>
+          <div class="r"><span class="k">결과</span><span class="v">브릿지 페이지 전환율이 약 3배로 뛰었고, 네이버 모바일에서 CTR이 업계 평균을 상회. 가이드 문서는 <b>GS SHOP 내부 자산</b>으로 남았습니다.</span></div>
+        </div>
+        <div class="metric">1.56 → <em>4.87%</em><small>브릿지 페이지 전환율 (약 3배) / 가이드 내부 자산화</small></div>
+      </div>
+    </article>
+
+    <div class="ai reveal">
+      <span class="tg">DEEP DIVE / DATA &amp; AI</span>
+      <h3>데이터와 AI를 직접 다룹니다</h3>
+      <p>공학 전공으로 데이터와 도구를 직접 다룹니다. 측정 환경을 직접 설계하고(GA / GTM / MMP / Looker, SQL / Python), AI는 <b>실행 속도를 높이는 도구</b>로 씁니다. 거창한 개발이 아니라, <b>문제를 정의하고 빠르게 만들어 검증하는 루프</b>를 일상적으로 돌립니다.</p>
+      <div class="loop"><span>① 문제 정의</span><i>→</i><span>② AI로 빠른 MVP</span><i>→</i><span>③ 사용자 피드백</span><i>→</i><span>④ 개선</span></div>
+      <p>두 딸의 영단어 학습이 단순 암기에 그치는 문제를 풀려고, 검증된 학습 게임 포맷에서 출발해 직접 만들고 실제 사용성을 관찰하며 고쳐 나갔습니다. 매일의 업무와 시장 동향 브리핑은 AI로 자동 수신하도록 만들었고, <b>지금 보고 계신 이 사이트도 직접 만들었습니다.</b></p>
+      <div class="tools"><span>SQL / Python</span><span>GA / GTM / MMP</span><span>Looker Studio</span><span>n8n</span><span>Claude / Codex</span></div>
+    </div>
+
+  </div>
+</section>
+
 
 <!-- ============================ CONTACT ============================ -->
 <section class="contact" id="contact">
-  <div class="ix reveal">05 — Contact</div>
+  <div class="ix reveal">06 — Contact</div>
   <h2 class="reveal">마케팅으로,<br>당신의 비즈니스 성장에 <b>함께</b>.</h2>
   <div class="info reveal">
     <a href="mailto:leoflyagain@gmail.com">EMAIL <b>leoflyagain@gmail.com</b></a>
