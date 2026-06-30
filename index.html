@@ -74,6 +74,14 @@
   .mqt span.a{color:var(--gold)}
   @keyframes slide{to{transform:translateX(-50%)}}
 
+  /* CLIENTS (업종별) */
+  .clients{max-width:var(--mw);margin:0 auto;padding:clamp(34px,4vw,56px) var(--gut)}
+  .clgrp{display:grid;grid-template-columns:170px 1fr;gap:clamp(14px,2vw,30px);padding:clamp(16px,1.8vw,22px) 0}
+  .clgrp+.clgrp{border-top:1px solid var(--line)}
+  .cglbl{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--gold);padding-top:5px}
+  .cgs{display:flex;flex-wrap:wrap;gap:8px}
+  .cgs span{font-family:var(--kr);font-weight:600;font-size:13.5px;color:#cbc7bd;background:#0d0d10;border:1px solid var(--line);border-radius:8px;padding:8px 13px}
+
   /* SECTION */
   .sec{padding:clamp(58px,7vw,108px) var(--gut)}
   .sec + .sec{border-top:1px solid var(--line)}
@@ -113,20 +121,19 @@
   .spx-axis .nd:last-child .t{color:var(--gold)}
   .spx-axis .nd:last-child::after{background:var(--gold)}
   .spx-line{height:2px;background:var(--line)}
-  .spx-cov{position:relative;height:88px;margin-top:14px}
-  .spx-cov .cov{position:absolute;height:36px;border-radius:8px;display:flex;align-items:center;padding:0 16px}
-  .spx-cov .cov span{font-family:var(--kr);font-size:clamp(11px,1vw,13px);font-weight:600;white-space:nowrap}
-  .spx-cov .gray{top:0;left:25%;width:33.34%;border:1px dashed var(--faint);color:var(--mut);justify-content:center}
-  .spx-cov .gold{top:48px;left:8.33%;width:83.34%;background:linear-gradient(90deg,rgba(245,179,1,.16),rgba(245,179,1,.04));border:1px solid var(--gold);color:var(--gold);justify-content:space-between}
-  .spx-cov .gold b{font-weight:800}
+  .spx-specialists{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:16px}
+  .spx-specialists .sp{border:1px dashed var(--faint);border-radius:8px;padding:13px 6px;text-align:center;font-family:var(--kr);font-weight:600;font-size:clamp(10.5px,1vw,12.5px);color:var(--mut)}
+  .spx-mine{display:flex;align-items:stretch;gap:9px;margin-top:10px}
+  .spx-mine .big{flex:1;border:1px solid var(--gold);background:linear-gradient(90deg,rgba(245,179,1,.16),rgba(245,179,1,.04));border-radius:8px;padding:13px 16px;display:flex;align-items:center;font-family:var(--kr);font-weight:800;font-size:clamp(11px,1.1vw,14px);color:var(--gold);letter-spacing:-.01em}
+  .spx-mine .plus{display:flex;align-items:center;color:var(--gold);font-weight:900;font-size:18px}
+  .spx-mine .add{border:1px solid var(--gold);background:rgba(245,179,1,.08);border-radius:8px;padding:13px 15px;display:flex;align-items:center;font-family:var(--kr);font-weight:800;font-size:clamp(11px,1.1vw,14px);color:var(--gold);white-space:nowrap}
   /* 그로스해킹 — 순환 */
-  .ghc{max-width:560px;margin:6px auto 0}
+  .ghc{max-width:470px;margin:0 auto}
   .ghc svg{width:100%;height:auto;display:block;overflow:visible}
-  .ghc .gl{font-family:var(--kr);font-weight:800;font-size:17px;fill:var(--ink)}
-  .ghc .gc{font-family:var(--grot);font-weight:900;font-size:36px;fill:var(--gold);letter-spacing:-.02em}
-  .ghc .gs{font-family:var(--kr);font-weight:500;font-size:13px;fill:var(--mut)}
-  .ghccap{margin-top:14px;text-align:center;font-size:clamp(13px,1.05vw,15px);color:var(--mut);line-height:1.6}
-  .ghccap b{color:var(--ink);font-weight:600}
+  .ghc .gl{font-family:var(--kr);font-weight:800;font-size:15px;fill:var(--ink)}
+  .ghc .gsub{font-family:var(--mono);font-weight:700;font-size:9px;letter-spacing:.1em;fill:var(--faint)}
+  .ghc .gc{font-family:var(--grot);font-weight:900;font-size:30px;fill:var(--gold);letter-spacing:-.02em}
+  .ghc .gcs{font-family:var(--mono);font-weight:700;font-size:10px;letter-spacing:.14em;fill:var(--mut)}
   /* 데이터+AI 툴/앱 */
   .toolgrp .gl{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);margin:18px 0 9px}
   .toolgrp .tg2{display:flex;flex-wrap:wrap;gap:7px}
@@ -152,7 +159,7 @@
   .cap{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:clamp(24px,2.8vw,38px);transition:border-color .3s,transform .3s}
   .cap:hover{border-color:var(--goldd);transform:translateY(-4px)}
   .cap .cn{font-family:var(--mono);font-weight:700;font-size:13px;color:var(--gold)}
-  .cap h3{font-family:var(--grot);font-weight:900;font-size:clamp(1.4rem,2vw,1.95rem);letter-spacing:-.02em;margin:14px 0 10px}
+  .cap h3{font-family:var(--grot);font-weight:900;font-size:clamp(1.4rem,2vw,1.95rem);letter-spacing:-.02em;margin:14px 0 10px;color:var(--gold)}
   .cap p{font-size:clamp(13.5px,1.1vw,15px);line-height:1.6;color:var(--mut);margin-bottom:18px}
   .cap .rf{display:flex;flex-wrap:wrap;gap:7px}
   .cap .rf span{font-family:var(--kr);font-weight:600;font-size:13.5px;background:#0d0d10;border:1px solid var(--line);border-radius:9px;padding:9px 13px;color:#cbc7bd}
@@ -238,8 +245,10 @@
     .dc{grid-template-columns:1fr}
     .dc .media{min-height:200px}
     .dc:nth-child(even) .media{order:0}
-    .spx-axis .nd .t{font-size:10.5px}
-    .spx-cov .cov span{font-size:10px}
+    .spx-axis .nd .t{font-size:10px}
+    .spx-specialists{grid-template-columns:repeat(3,1fr)}
+    .spx-mine{flex-wrap:wrap}
+    .clgrp{grid-template-columns:1fr;gap:8px}
     .tl{grid-template-columns:1fr;gap:6px}
     .cover .row{flex-direction:column;align-items:flex-start}
     .nav .lk{display:none}
@@ -255,9 +264,9 @@
   <div class="lk">
     <a href="#about">ABOUT</a>
     <a href="#career">CAREER</a>
-    <a href="#cap">역량</a>
+    <a href="#cap">CAPABILITIES</a>
     <a href="#work">WORK</a>
-    <a href="#deep">심화</a>
+    <a href="#deep">DEEP DIVE</a>
     <a href="#contact">CONTACT</a>
   </div>
 </nav>
@@ -286,8 +295,14 @@
   <div class="scrollcue">SCROLL</div>
 </section>
 
-<!-- ============================ MARQUEE ============================ -->
-<div class="mq"><div class="mqt" id="mq"></div></div>
+<!-- ============================ CLIENTS ============================ -->
+<section class="clients reveal">
+  <div class="clgrp"><span class="cglbl">유통 / 커머스</span><div class="cgs"><span>삼성전자</span><span>GS SHOP</span><span>홈앤쇼핑</span><span>롯데ON</span><span>롯데백화점</span><span>롯데마트</span><span>롯데하이마트</span></div></div>
+  <div class="clgrp"><span class="cglbl">금융</span><div class="cgs"><span>미래에셋증권</span><span>한국투자증권</span><span>한국투자신탁운용</span><span>핀트 (fint)</span><span>알리안츠생명</span><span>펀드슈퍼마켓</span><span>피델리티 자산운용</span></div></div>
+  <div class="clgrp"><span class="cglbl">미디어 사업</span><div class="cgs"><span>롯데 RMN</span><span>L.Point</span><span>Amazon Ads</span><span>모두의주차장</span></div></div>
+  <div class="clgrp"><span class="cglbl">뷰티 / 생활 / 식음료</span><div class="cgs"><span>LG생활건강</span><span>쥬비스</span><span>동국제약</span><span>남양유업</span><span>빙그레</span></div></div>
+  <div class="clgrp"><span class="cglbl">모빌리티 / 기타</span><div class="cgs"><span>티머니GO</span><span>포드코리아</span><span>그린카</span><span>COMMAX</span><span>KT&amp;G</span><span>교원</span><span>호주관광청</span></div></div>
+</section>
 
 <!-- ============================ ABOUT ============================ -->
 <section class="sec" id="about">
@@ -305,41 +320,50 @@
       <div class="spx">
         <div class="spx-axis">
           <div class="nd"><span class="t">진단 / 분석</span></div>
-          <div class="nd"><span class="t">전략</span></div>
+          <div class="nd"><span class="t">전략 / 설계</span></div>
           <div class="nd"><span class="t">캠페인 / 콘텐츠</span></div>
           <div class="nd"><span class="t">프로모션 / BTL</span></div>
           <div class="nd"><span class="t">미디어 운영</span></div>
           <div class="nd"><span class="t">플랫폼 비즈</span></div>
         </div>
         <div class="spx-line"></div>
-        <div class="spx-cov">
-          <div class="cov gray"><span>일반적인 마케터 — 2~4개 영역</span></div>
-          <div class="cov gold"><span><b>안정호</b> — 처음부터 끝까지</span><span>▸</span></div>
+        <div class="spx-specialists">
+          <div class="sp">마케터 A</div>
+          <div class="sp">마케터 B</div>
+          <div class="sp">마케터 C</div>
+          <div class="sp">마케터 D</div>
+          <div class="sp">마케터 E</div>
+          <div class="sp">마케터 F</div>
+        </div>
+        <div class="spx-mine">
+          <div class="big">진단부터 미디어 운영까지 — 전 단계 통합</div>
+          <span class="plus">+</span>
+          <div class="add">CRM</div>
+          <span class="plus">+</span>
+          <div class="add">플랫폼 비즈</div>
         </div>
       </div>
-      <p class="speccap">대부분의 마케터가 <b>두세 영역</b>을 다룰 때, 저는 진단부터 <b>플랫폼 비즈(미디어 사업)</b>까지 전 영역을 직접 경험했습니다.</p>
     </div>
 
     <div class="aboutsec">
-      <div class="flowlbl">그로스해킹 프레임워크 / HOW I WORK</div>
+      <div class="flowlbl">그로스해킹 / GROWTH HACKING</div>
       <div class="ghc">
-        <svg viewBox="0 0 520 430" role="img" aria-label="그로스해킹 순환: 진단 → 가설 → 검증 → 인사이트 → 정책">
-          <defs><marker id="ah" markerWidth="9" markerHeight="9" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#F5B301"/></marker></defs>
-          <path d="M137,86 A210,160 0 0 1 383,86" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1.5" marker-end="url(#ah)"/>
-          <path d="M383,86 A210,160 0 0 1 460,264" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1.5" marker-end="url(#ah)"/>
-          <path d="M460,264 A210,160 0 0 1 260,375" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1.5" marker-end="url(#ah)"/>
-          <path d="M260,375 A210,160 0 0 1 60,264" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1.5" marker-end="url(#ah)"/>
-          <path d="M60,264 A210,160 0 0 1 137,86" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1.5" marker-end="url(#ah)"/>
-          <text x="260" y="200" text-anchor="middle" class="gc">Growth</text>
-          <text x="260" y="240" text-anchor="middle" class="gc">Hacking</text>
-          <circle cx="137" cy="86" r="7" fill="#F5B301"/><text x="137" y="64" text-anchor="middle" class="gl">진단</text>
-          <circle cx="383" cy="86" r="7" fill="#F5B301"/><text x="383" y="64" text-anchor="middle" class="gl">가설</text>
-          <circle cx="460" cy="264" r="7" fill="#F5B301"/><text x="480" y="270" text-anchor="start" class="gl">검증</text>
-          <circle cx="260" cy="375" r="7" fill="#F5B301"/><text x="260" y="404" text-anchor="middle" class="gl">인사이트</text>
-          <circle cx="60" cy="264" r="7" fill="#F5B301"/><text x="40" y="270" text-anchor="end" class="gl">정책</text>
+        <svg viewBox="0 0 460 365" role="img" aria-label="그로스해킹 순환: 진단 가설 검증 인사이트 정책">
+          <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#F5B301"/></marker></defs>
+          <path d="M133,80 A165,118 0 0 1 327,80" fill="none" stroke="rgba(245,179,1,.5)" stroke-width="1.6" marker-end="url(#ah)"/>
+          <path d="M327,80 A165,118 0 0 1 387,212" fill="none" stroke="rgba(245,179,1,.5)" stroke-width="1.6" marker-end="url(#ah)"/>
+          <path d="M387,212 A165,118 0 0 1 230,293" fill="none" stroke="rgba(245,179,1,.5)" stroke-width="1.6" marker-end="url(#ah)"/>
+          <path d="M230,293 A165,118 0 0 1 73,212" fill="none" stroke="rgba(245,179,1,.5)" stroke-width="1.6" marker-end="url(#ah)"/>
+          <path d="M73,212 A165,118 0 0 1 133,80" fill="none" stroke="rgba(245,179,1,.5)" stroke-width="1.6" marker-end="url(#ah)"/>
+          <text x="230" y="167" text-anchor="middle" class="gc">GROWTH</text>
+          <text x="230" y="199" text-anchor="middle" class="gc">HACKING</text>
+          <g><circle cx="133" cy="80" r="14" fill="#F5B301"/><text x="133" y="80" text-anchor="middle" dy="0.36em" font-family="'Space Mono',monospace" font-weight="700" font-size="12" fill="#0A0A0B">01</text><text x="133" y="50" text-anchor="middle" class="gl">진단</text></g>
+          <g><circle cx="327" cy="80" r="14" fill="#F5B301"/><text x="327" y="80" text-anchor="middle" dy="0.36em" font-family="'Space Mono',monospace" font-weight="700" font-size="12" fill="#0A0A0B">02</text><text x="327" y="50" text-anchor="middle" class="gl">가설</text></g>
+          <g><circle cx="387" cy="212" r="14" fill="#F5B301"/><text x="387" y="212" text-anchor="middle" dy="0.36em" font-family="'Space Mono',monospace" font-weight="700" font-size="12" fill="#0A0A0B">03</text><text x="410" y="217" text-anchor="start" class="gl">검증</text></g>
+          <g><circle cx="230" cy="293" r="14" fill="#F5B301"/><text x="230" y="293" text-anchor="middle" dy="0.36em" font-family="'Space Mono',monospace" font-weight="700" font-size="12" fill="#0A0A0B">04</text><text x="230" y="325" text-anchor="middle" class="gl">인사이트</text></g>
+          <g><circle cx="73" cy="212" r="14" fill="#F5B301"/><text x="73" y="212" text-anchor="middle" dy="0.36em" font-family="'Space Mono',monospace" font-weight="700" font-size="12" fill="#0A0A0B">05</text><text x="50" y="217" text-anchor="end" class="gl">정책</text></g>
         </svg>
       </div>
-      <p class="ghccap">데이터로 <b>진단</b>하고 <b>가설</b>을 <b>검증</b>해, <b>인사이트</b>를 <b>정책</b>으로 만드는 순환. 이 루프를 빠르게 돌립니다.</p>
     </div>
   </div>
 </section>
@@ -574,17 +598,6 @@
   if(w&&!reduce){setInterval(rot,2600);window.addEventListener('resize',function(){slot.style.width=widthOf(words[i])+'px';});}
 
   /* 골드(a) = 케이스로 소개되는 핵심 광고주 / 회색('') = 그 외 거쳐온 브랜드(폭 증명) */
-  /* 업종별 묶음 — 골드=대표 광고주 */
-  var L=[
-    ['삼성전자','a'],['GS SHOP','a'],['홈앤쇼핑','a'],['롯데ON','a'],['롯데백화점','a'],['롯데마트',''],['롯데하이마트',''],
-    ['미래에셋증권',''],['한국투자증권',''],['한국투자신탁운용',''],['핀트 (fint)','a'],['알리안츠생명',''],['펀드슈퍼마켓',''],['피델리티 자산운용',''],
-    ['롯데 RMN','a'],['L.Point','a'],['Amazon Ads','a'],
-    ['LG생활건강','a'],['쥬비스','a'],['동국제약',''],['남양유업',''],['빙그레',''],
-    ['티머니GO','a'],['포드코리아','a'],['그린카',''],['COMMAX',''],['KT&G',''],['교원',''],['호주관광청','']
-  ];
-  var mq=document.getElementById('mq');
-  if(mq){var h=L.map(function(x){return '<span class="'+x[1]+'">'+x[0]+'</span>';}).join('');mq.innerHTML=h+h;}
-
   var nav=document.getElementById('nav');
   function onScroll(){if(nav)nav.classList.toggle('solid',window.scrollY>40);}
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
