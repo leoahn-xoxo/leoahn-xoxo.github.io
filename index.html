@@ -66,10 +66,10 @@
 
   /* MARQUEE */
   .mq{border-bottom:1px solid var(--line);overflow:hidden;padding:15px 0}
-  .mqt{display:flex;width:max-content;animation:slide 44s linear infinite;font-family:var(--grot);font-weight:900;font-size:clamp(15px,1.8vw,24px)}
+  .mqt{display:flex;align-items:center;width:max-content;animation:slide 44s linear infinite;font-family:var(--kr);font-weight:800;font-size:clamp(15px,1.8vw,24px);line-height:1}
   .mq:hover .mqt{animation-play-state:paused}
-  .mqt span{padding:0 clamp(16px,1.8vw,30px);color:var(--faint);white-space:nowrap}
-  .mqt span.a{color:var(--gold)}.mqt span.f{color:var(--ink)}
+  .mqt span{padding:0 clamp(16px,1.8vw,30px);color:var(--faint);white-space:nowrap;letter-spacing:-.01em}
+  .mqt span.a{color:var(--gold)}
   @keyframes slide{to{transform:translateX(-50%)}}
 
   /* SECTION */
@@ -340,7 +340,8 @@
   if(w&&!reduce)setInterval(rot,2400);
 
   /* marquee */
-  var L=[['삼성전자','a'],['GS SHOP','f'],['롯데백화점','a'],['홈앤쇼핑',''],['롯데ON','f'],['롯데마트',''],['LG생활건강','a'],['Amazon Ads','f'],['L.Point','a'],['KT&G',''],['빙그레','f'],['남양유업',''],['포드코리아',''],['핀트',''],['쥬비스','']];
+  /* 골드(a) = 케이스로 소개되는 핵심 광고주 / 회색('') = 그 외 거쳐온 브랜드(폭 증명) */
+  var L=[['삼성전자','a'],['GS SHOP','a'],['홈앤쇼핑','a'],['롯데백화점','a'],['롯데ON','a'],['LG생활건강','a'],['쥬비스','a'],['핀트','a'],['Amazon Ads','a'],['티머니GO','a'],['포드코리아','a'],['L.Point',''],['KT&G',''],['남양유업',''],['빙그레',''],['그린카',''],['동국제약',''],['교원',''],['호주관광청','']];
   var mq=document.getElementById('mq');
   if(mq){var h=L.map(function(x){return '<span class="'+x[1]+'">'+x[0]+'</span>';}).join('');mq.innerHTML=h+h;}
 
